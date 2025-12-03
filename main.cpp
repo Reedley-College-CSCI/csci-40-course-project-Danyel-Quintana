@@ -1,13 +1,23 @@
 // CSCI-40 Final Project
-// Author: [Your Name Here]
+// Author: Danyel Quintana 
 
 /* 
- * Description:
- *
+ Description:
+ 
 */
 
 #include <iostream>
 
 int main() {
+
+
+
+
+
+
+
+
+
+
     return 0;
 }
