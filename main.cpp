@@ -28,7 +28,7 @@ void readLibraryFile();
 void saveLibraryFile();
 void checkoutBook();
 void returnBook();
-void bookSort();
+void bookSortBy(int num);
 void bookSearch();
 void displayBooks();
 
@@ -37,6 +37,7 @@ int main() {
     readLibraryFile();
 
     int answer;
+    
 
     do {
 
@@ -53,11 +54,18 @@ int main() {
         switch (answer) {
         case 1: checkoutBook(); break;
         case 2: returnBook(); break;
-        case 3: bookSort(); break;
+        case 3:{
+            int sortBy = 0;
+            cout << "How would you like them sorted?\n1:BookNum\n2:Title\n3:Author\n4:Publication\n5:Availability\n\n";
+            cin >> sortBy;
+            bookSortBy(sortBy);
+            displayBooks();
+            break;
+        }
         case 4: bookSearch(); break;
         case 5: displayBooks(); break;
         case 6: saveLibraryFile(); break; 
-        default: cout << "Error: Please enter an integer 1 - 5\n";
+        default: cout << "Error: Please enter an integer 1 - 6\n";
         }
 
     } while (answer != 6);
@@ -179,14 +187,59 @@ void returnBook() {
                 cout << "This book is in stock.\n\n";
 
             break;
-
+                
         }
 
     }
 }
 
-void bookSort() {
+void bookSortBy(int num) {
+   
+    if (num < 1 || num > 5) {
+        cout << "Enter an integer between 1-5\n";
+        return;
+    }
 
+    for (int i = 0; i < numOfCurrentBooks - 1; i++) {
+        for (int j = 0; j < numOfCurrentBooks - i - 1; j++) {
+            if (num == 1) {
+                if (bookShelves[j].bookNum > bookShelves[j + 1].bookNum) {
+                    BookInfo temp = bookShelves[j];
+                    bookShelves[j] = bookShelves[j + 1];
+                    bookShelves[j + 1] = temp;
+                }
+            }
+            if (num == 2) {
+                if (bookShelves[j].title > bookShelves[j + 1].title) {
+                    BookInfo temp = bookShelves[j];
+                    bookShelves[j] = bookShelves[j + 1];
+                    bookShelves[j + 1] = temp;
+                }
+            }
+            if (num == 3) {
+                 if (bookShelves[j].author > bookShelves[j + 1].author) {
+                    BookInfo temp = bookShelves[j];
+                    bookShelves[j] = bookShelves[j + 1];
+                    bookShelves[j + 1] = temp;
+                    }
+            }
+            if (num == 4) {
+                if (bookShelves[j].publishYear > bookShelves[j + 1].publishYear) {
+                    BookInfo temp = bookShelves[j];
+                    bookShelves[j] = bookShelves[j + 1];
+                    bookShelves[j + 1] = temp;
+                }
+            }
+            if (num == 5) {
+                if (bookShelves[j].availability > bookShelves[j + 1].availability) {
+                    BookInfo temp = bookShelves[j];
+                    bookShelves[j] = bookShelves[j + 1];
+                    bookShelves[j + 1] = temp;
+                }
+            }
+            
+        }
+    }
 }
 
 void bookSearch() {
@@ -200,7 +253,7 @@ void bookSearch() {
         if (bookShelves[i].title == bookTitleSearched) {
             bookFound = true;
             cout << "\nYou Found Your Book!:\n";
-            cout << "ID: " << bookShelves[i].bookNum << "\n"
+            cout << "BookNum: " << bookShelves[i].bookNum << "\n"
                 << "Title: " << bookShelves[i].title << "\n"
                 << "Author: " << bookShelves[i].author << "\n"
                 << "Year: " << bookShelves[i].publishYear << "\n"
