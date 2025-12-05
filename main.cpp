@@ -16,7 +16,7 @@ struct BookInfo {
     string title;
     string author;
     int publishYear;
-    int availability;
+    bool availability;
 };
 
 const int BOOK_CAPACITY = 500;
