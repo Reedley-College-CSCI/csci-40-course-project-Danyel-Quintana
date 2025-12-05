@@ -10,18 +10,14 @@
 #include <fstream>
 using namespace std;
 
-void checkoutBook() {
+void checkoutBook();
 
-};
-
-void returnBook() {
-
-};
+void returnBook();
 
 
 
 
-
+//test
 
 
 
