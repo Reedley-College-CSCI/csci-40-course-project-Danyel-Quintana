@@ -31,7 +31,6 @@ void checkoutBook();
 void returnBook();
 void bookSort();
 void bookSearch();
-void displayAvailableBooks();
 
 
 
@@ -43,8 +42,7 @@ int main() {
     cout << "2: Return a Book\n";
     cout << "3: Sort Books\n";
     cout << "4: Search Books\n";
-    cout << "5: List of Available Books\n";
-    cout << "6: Leave Library\n\n";
+    cout << "5: Leave Library\n\n";
     cout << "What Shall I do?: \n";
 
     cin >> answer;
@@ -110,9 +108,5 @@ void bookSort() {
 };
 
 void bookSearch() {
-
-};
-
-void displayAvailableBooks() {
 
 };
