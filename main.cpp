@@ -28,7 +28,7 @@ int numOfCurrentBooks = 0;
 void readLibraryFile();
 void checkoutBook();
 void returnBook();
-void bookSortBy();
+void bookSort();
 void bookSearch();
 void displayAvailableBooks();
 
@@ -40,7 +40,7 @@ int main() {
     cout << "~~~~Welcome to Danyel Quintana's Library!~~~~\n\n";
     cout << "1: Checkout a Book\n";
     cout << "2: Return a Book\n";
-    cout << "3: Sort Books by...\n";
+    cout << "3: Sort Books\n";
     cout << "4: Search Books\n";
     cout << "5: List of Available Books\n";
     cout << "6: Leave Library\n\n";
@@ -48,7 +48,7 @@ int main() {
 
     cin >> answer;
 
-
+ 
 
 
 
@@ -58,7 +58,10 @@ int main() {
 }
 
 void readLibraryFile() {
-    ifstream
+    ifstream inFile("Library.txt");
+    if (!inFile) {
+        cout << "Error: Could not load Library.txt";
+    }
 };
 
 void checkoutBook() {
@@ -69,7 +72,7 @@ void returnBook() {
 
 }
 
-void bookSortBy() {
+void bookSort() {
 
 };
 
