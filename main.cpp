@@ -15,11 +15,13 @@ struct BookInfo {
     int bookNum;
     string title;
     string author;
-    int releaseYear;
+    int publishYear;
     int availability;
 };
 
-
+const int BOOK_CAPACITY = 500;
+BookInfo bookSheleves[BOOK_CAPACITY];
+int numOfCurrentBooks = 0;
 
 
 
@@ -28,6 +30,7 @@ void checkoutBook();
 void returnBook();
 void bookSortBy();
 void bookSearch();
+void displayAvailableBooks();
 
 
 
@@ -59,5 +62,17 @@ void checkoutBook() {
 };
 
 void returnBook() {
+
+}
+
+void bookSortBy() {
+
+};
+
+void bookSearch() {
+
+};
+
+void displayAvailableBooks() {
 
 };
