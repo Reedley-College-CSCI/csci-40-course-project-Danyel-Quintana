@@ -8,17 +8,26 @@
 
 #include <iostream>
 #include <fstream>
+#include <string>
 using namespace std;
 
+struct BookInfo {
+    int bookNum;
+    string title;
+    string author;
+    int releaseYear;
+    int availability;
+};
+
+
+
+
+
+
 void checkoutBook();
-
 void returnBook();
-
-
-
-
-//test 3
-
+void bookSortBy();
+void bookSearch();
 
 
 
@@ -26,7 +35,7 @@ int main() {
     int answer;
 
     cout << "~~~~Welcome to Danyel Quintana's Library!~~~~\n\n";
-    cout << "1: Rent a Book\n";
+    cout << "1: Checkout a Book\n";
     cout << "2: Return a Book\n";
     cout << "3: Sort Books by...\n";
     cout << "4: Search Books\n";
@@ -44,3 +53,11 @@ int main() {
 
     return 0;
 }
+
+void checkoutBook() {
+
+};
+
+void returnBook() {
+
+};
