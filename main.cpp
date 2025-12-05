@@ -7,6 +7,23 @@
 */
 
 #include <iostream>
+using namespace std;
+
+void checkOutBook() {
+
+};
+
+void returnBook() {
+
+};
+
+
+
+
+
+
+
+
 
 int main() {
 
