@@ -61,7 +61,24 @@ void readLibraryFile() {
     ifstream inFile("Library.txt");
     if (!inFile) {
         cout << "Error: Could not load Library.txt";
+        return;
     }
+
+   
+    numOfCurrentBooks = 0;
+    while 
+        (numOfCurrentBooks < BOOK_CAPACITY &&
+        inFile 
+        >> bookSheleves[numOfCurrentBooks].bookNum
+        >> bookSheleves[numOfCurrentBooks].title
+        >> bookSheleves[numOfCurrentBooks].author
+        >> bookSheleves[numOfCurrentBooks].publishYear
+        >> bookSheleves[numOfCurrentBooks].availability) 
+    {
+        numOfCurrentBooks++;
+    }
+
+    inFile.close();
 };
 
 void checkoutBook() {
