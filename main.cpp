@@ -57,7 +57,7 @@ int main() {
         case 3: bookSort(); break;
         case 4: bookSearch(); break;
         case 5: saveLibraryFile(); break; 
-        default: cout << "Please enter an integer 1 - 5\n";
+        default: cout << "Error: Please enter an integer 1 - 5\n";
         }
 
     } while (answer != 5);
@@ -87,12 +87,14 @@ void readLibraryFile() {
     }
 
     inFile.close();
-};
+}
 
-void saveLibraryFile() {
+void saveLibraryFile() 
+{
     ofstream outFile("Library.txt");
 
-    for (int i = 0; i < numOfCurrentBooks; i++) {
+    for (int i = 0; i < numOfCurrentBooks; i++) 
+    {
         outFile
             << bookShelves[i].bookNum << " "
             << bookShelves[i].title << " "
@@ -102,31 +104,63 @@ void saveLibraryFile() {
     }
 
     outFile.close();
-};
-
-void checkoutBook() {
-    displayBooks();
-};
-
-void returnBook() {
-    displayBooks();
 }
 
-void bookSort() {
-
-};
-
-void bookSearch() {
-
-};
-
-void displayBooks() {
+void displayBooks()
+{
     cout << "\nAll Books:\n";
-    for (int i = 0; i < numOfCurrentBooks; i++) {
+    for (int i = 0; i < numOfCurrentBooks; i++)
+    {
         cout << bookShelves[i].bookNum << " "
             << bookShelves[i].title << " "
             << bookShelves[i].author << " "
             << bookShelves[i].publishYear << " "
             << (bookShelves[i].availability ? "Available" : "Checked Out") << "\n";
-    };
+    }
 }
+
+void checkoutBook()
+{
+    displayBooks();
+
+    int bookId;
+    bool bookFound = false;
+
+    cout << "Enter the number of the book you would like to check out: \n";
+
+    cin >> bookId;
+   
+    for (int i = 0; i < numOfCurrentBooks; i++)
+    {
+        if (bookShelves[i].bookNum == bookId)
+        {
+            bookFound = true;
+
+            if (bookShelves[i].availability)
+            {
+                bookShelves[i].availability = 0; 
+                cout << "You checked out: " << bookShelves[i].title << "\n";
+                saveLibraryFile();
+            }
+            else
+                cout << "This book is already checked out.\n";
+           
+            break;
+
+        }
+
+    }
+}
+
+void returnBook() {
+
+ }
+
+void bookSort() {
+
+}
+
+void bookSearch() {
+
+}
+
