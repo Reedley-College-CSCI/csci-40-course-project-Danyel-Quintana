@@ -25,7 +25,7 @@ int numOfCurrentBooks = 0;
 
 
 
-
+void readLibraryFile();
 void checkoutBook();
 void returnBook();
 void bookSortBy();
@@ -56,6 +56,10 @@ int main() {
 
     return 0;
 }
+
+void readLibraryFile() {
+    ifstream
+};
 
 void checkoutBook() {
 
