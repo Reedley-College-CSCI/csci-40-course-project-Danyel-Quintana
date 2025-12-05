@@ -24,7 +24,6 @@ BookInfo bookShelves[BOOK_CAPACITY];
 int numOfCurrentBooks = 0;
 
 
-
 void readLibraryFile();
 void saveLibraryFile();
 void checkoutBook();
@@ -32,7 +31,6 @@ void returnBook();
 void bookSort();
 void bookSearch();
 void displayBooks();
-
 
 
 int main() {
@@ -192,6 +190,25 @@ void bookSort() {
 }
 
 void bookSearch() {
+    cin.ignore();
+    string bookTitleSearched;
+    cout << "Enter a title to search (Include underscores in places of spaces): ";
+    getline(cin, bookTitleSearched);
 
+    bool bookFound = false;
+    for (int i = 0; i < numOfCurrentBooks; i++) {
+        if (bookShelves[i].title == bookTitleSearched) {
+            bookFound = true;
+            cout << "\nYou Found Your Book!:\n";
+            cout << "ID: " << bookShelves[i].bookNum << "\n"
+                << "Title: " << bookShelves[i].title << "\n"
+                << "Author: " << bookShelves[i].author << "\n"
+                << "Year: " << bookShelves[i].publishYear << "\n"
+                << "Status: " << (bookShelves[i].availability ? "Available" : "Checked Out") << "\n\n";
+        }
+    }
+
+    if (!bookFound)
+        cout << "No book found with that title.\nTry including underscores in places of spaces\nEX: The_Maze_Runner\n\n";
 }
 
