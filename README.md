@@ -55,7 +55,7 @@ TC-01:  Enter 1 to checkout book,       1                allows me to check out 
 TC-02:  Enter 7 to cause default case,   7                      Error             "Error: Please enter an integer 1 - 6"                               P
 
 TC-03:  Sort by Author                   1,3         Sorts and Displays by Author          Sorts and Displays by Author                                P
-    
+        
 TC-04:  Search a Book              4,The_Maze_Runner    Shows The Maze Runner and Status   Shows The Maze Runner and Status                            p
 
 TC-05: Checkout a book, exit program    1,1 exit, 5          Shows book not available          Shows book not available                                p
@@ -66,7 +66,7 @@ TC-05: Checkout a book, exit program    1,1 exit, 5          Shows book not avai
 - Explain the main functionality of your program.  
 - **Include a link to your required video demonstration** showcasing how the project works (**3-7 minutes**). 
     Make sure it shareable without approval needed.
-
+    https://screenrec.com/share/IheO64rns9
 ---
 
 ## 5. Challenges and Lessons Learned
