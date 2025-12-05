@@ -1,8 +1,14 @@
-// CSCI-40 Final Project
+// CSCI-40 Final Project - Danyel's Library
 // Author: Danyel Quintana 
 
 /* 
  Description:
+ This app allows you the user to browse my library of books
+ You can checkout, return, sort, search, and browse all the books!
+ This can be done by entering the prompted numbers
+ Reads from Library.txt with its selection of 15 books (includes number,title,author,year,and availability)
+ checking out a book will not allow you to check it out again untill it is returned
+ Enjoy!
  
 */
 
@@ -41,7 +47,7 @@ int main() {
 
     do {
 
-        cout << "~~~~Welcome to Danyel Quintana's Library!~~~~\n\n";
+        cout << "~~~~Welcome to Danyel's Library!~~~~\n\n";
         cout << "1: Checkout a Book\n";
         cout << "2: Return a Book\n";
         cout << "3: Sort Books\n";
@@ -262,6 +268,6 @@ void bookSearch() {
     }
 
     if (!bookFound)
-        cout << "No book found with that title.\nTry including underscores in places of spaces\nEX: The_Maze_Runner\n\n";
+        cout << "No book found with that title.\nTry including underscores in place of spaces\nEX: The_Maze_Runner\n\n";
 }
 
