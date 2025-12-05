@@ -12,11 +12,11 @@
 using namespace std;
 
 struct BookInfo {
-    int bookNum;
+    int bookNum = 0;
     string title;
     string author;
-    int publishYear;
-    bool availability;
+    int publishYear = 0;
+    bool availability = true;
 };
 
 const int BOOK_CAPACITY = 500;
@@ -126,7 +126,7 @@ void checkoutBook()
     int bookId;
     bool bookFound = false;
 
-    cout << "Enter the number of the book you would like to check out: \n";
+    cout << "\nEnter the number of the book you would like to check out: \n";
 
     cin >> bookId;
    
@@ -139,11 +139,11 @@ void checkoutBook()
             if (bookShelves[i].availability)
             {
                 bookShelves[i].availability = 0; 
-                cout << "You checked out: " << bookShelves[i].title << "\n";
+                cout << "You checked out: " << bookShelves[i].title << "\n\n";
                 saveLibraryFile();
             }
             else
-                cout << "This book is already checked out.\n";
+                cout << "This book is already checked out.\n\n";
            
             break;
 
@@ -153,8 +153,36 @@ void checkoutBook()
 }
 
 void returnBook() {
+    displayBooks();
 
- }
+    int bookId;
+    bool bookFound = false;
+
+    cout << "\nEnter the number of the book you would like to return: \n";
+
+    cin >> bookId;
+
+    for (int i = 0; i < numOfCurrentBooks; i++)
+    {
+        if (bookShelves[i].bookNum == bookId)
+        {
+            bookFound = true;
+
+            if (!bookShelves[i].availability)
+            {
+                bookShelves[i].availability = 1;
+                cout << "You returned: " << bookShelves[i].title << "\n\n";
+                saveLibraryFile();
+            }
+            else
+                cout << "This book is in stock.\n\n";
+
+            break;
+
+        }
+
+    }
+}
 
 void bookSort() {
 
