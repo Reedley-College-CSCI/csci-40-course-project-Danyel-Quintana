@@ -26,6 +26,7 @@ int numOfCurrentBooks = 0;
 
 
 void readLibraryFile();
+void saveLibraryFile();
 void checkoutBook();
 void returnBook();
 void bookSort();
@@ -79,6 +80,21 @@ void readLibraryFile() {
     }
 
     inFile.close();
+};
+
+void saveLibraryFile() {
+    ofstream outFile("Library.txt");
+
+    for (int i = 0; i < numOfCurrentBooks; i++) {
+        outFile
+            << bookSheleves[i].bookNum << " "
+            << bookSheleves[i].title << " "
+            << bookSheleves[i].author << " "
+            << bookSheleves[i].publishYear << " "
+            << bookSheleves[i].availability << "\n";
+    }
+
+    outFile.close();
 };
 
 void checkoutBook() {
