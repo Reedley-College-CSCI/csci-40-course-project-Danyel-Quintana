@@ -47,7 +47,8 @@ int main() {
         cout << "2: Return a Book\n";
         cout << "3: Sort Books\n";
         cout << "4: Search Books\n";
-        cout << "5: Leave Library\n\n";
+        cout << "5: Browse Books\n";
+        cout << "6: Leave Library\n\n";
         cout << "What Shall I do?: \n";
 
         cin >> answer;
@@ -56,11 +57,12 @@ int main() {
         case 2: returnBook(); break;
         case 3: bookSort(); break;
         case 4: bookSearch(); break;
-        case 5: saveLibraryFile(); break; 
+        case 5: displayBooks(); break;
+        case 6: saveLibraryFile(); break; 
         default: cout << "Error: Please enter an integer 1 - 5\n";
         }
 
-    } while (answer != 5);
+    } while (answer != 6);
 
     return 0;
 }
@@ -117,6 +119,7 @@ void displayBooks()
             << bookShelves[i].publishYear << " "
             << (bookShelves[i].availability ? "Available" : "Checked Out") << "\n";
     }
+    cout << endl;
 }
 
 void checkoutBook()
