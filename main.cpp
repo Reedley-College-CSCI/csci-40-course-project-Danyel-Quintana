@@ -31,6 +31,7 @@ void checkoutBook();
 void returnBook();
 void bookSort();
 void bookSearch();
+void displayAvailableBooks();
 
 
 
@@ -108,5 +109,9 @@ void bookSort() {
 };
 
 void bookSearch() {
+
+};
+
+void displayAvailableBooks() {
 
 };
