@@ -17,6 +17,7 @@
 #include <string>
 using namespace std;
 
+//Struct to keep book info together
 struct BookInfo {
     int bookNum = 0;
     string title;
@@ -25,11 +26,12 @@ struct BookInfo {
     bool availability = true;
 };
 
-const int BOOK_CAPACITY = 500;
-BookInfo bookShelves[BOOK_CAPACITY];
+const int BOOK_CAPACITY = 500; //Max books possible in Library.txt
+
+BookInfo bookShelves[BOOK_CAPACITY];//Array holding data of struct values
 int numOfCurrentBooks = 0;
 
-
+//Prototypes
 void readLibraryFile();
 void saveLibraryFile();
 void checkoutBook();
@@ -40,13 +42,13 @@ void displayBooks();
 
 
 int main() {
-    readLibraryFile();
+    readLibraryFile();//see function
 
     int answer;
     
 
     do {
-
+        //Main menu prompts user for answer
         cout << "~~~~Welcome to Danyel's Library!~~~~\n\n";
         cout << "1: Checkout a Book\n";
         cout << "2: Return a Book\n";
@@ -57,11 +59,12 @@ int main() {
         cout << "What Shall I do?: \n";
 
         cin >> answer;
+        //Switch statement to respond to answer
         switch (answer) {
         case 1: checkoutBook(); break;
         case 2: returnBook(); break;
         case 3:{
-            int sortBy = 0;
+            int sortBy = 0;//arguement for function bookSortBy
             cout << "How would you like them sorted?\n1:BookNum\n2:Title\n3:Author\n4:Publication\n5:Availability\n\n";
             cin >> sortBy;
             bookSortBy(sortBy);
@@ -71,15 +74,19 @@ int main() {
         case 4: bookSearch(); break;
         case 5: displayBooks(); break;
         case 6: saveLibraryFile(); break; 
-        default: cout << "Error: Please enter an integer 1 - 6\n";
+        default: cout << "Error: Please enter an integer 1 - 6\n";//when invalid input
         }
 
-    } while (answer != 6);
+    } while (answer != 6);//entering 6 ends program
 
     return 0;
 }
 
+//reads from Library.txt
+//prompts error on failure to load file
+//assigns data to struct variables
 void readLibraryFile() {
+
     ifstream inFile("Library.txt");
     if (!inFile) {
         cout << "Error: Could not load Library.txt";
@@ -99,10 +106,10 @@ void readLibraryFile() {
     {
         numOfCurrentBooks++;
     }
-
+    //always close when done
     inFile.close();
 }
-
+//Saves changes to struct data
 void saveLibraryFile() 
 {
     ofstream outFile("Library.txt");
@@ -116,10 +123,10 @@ void saveLibraryFile()
             << bookShelves[i].publishYear << " "
             << bookShelves[i].availability << "\n";
     }
-
+    //always close when done
     outFile.close();
 }
-
+//displays users all books and their relevant info
 void displayBooks()
 {
     cout << "\nAll Books:\n";
@@ -133,7 +140,7 @@ void displayBooks()
     }
     cout << endl;
 }
-
+//changes a book availability to checkouted by user instruction
 void checkoutBook()
 {
     displayBooks();
@@ -155,7 +162,7 @@ void checkoutBook()
             {
                 bookShelves[i].availability = 0; 
                 cout << "You checked out: " << bookShelves[i].title << "\n\n";
-                saveLibraryFile();
+                saveLibraryFile();//saves changes
             }
             else
                 cout << "This book is already checked out.\n\n";
@@ -166,7 +173,7 @@ void checkoutBook()
 
     }
 }
-
+//changes a book availability to available by user instruction
 void returnBook() {
     displayBooks();
 
@@ -187,7 +194,7 @@ void returnBook() {
             {
                 bookShelves[i].availability = 1;
                 cout << "You returned: " << bookShelves[i].title << "\n\n";
-                saveLibraryFile();
+                saveLibraryFile();//saves changes
             }
             else
                 cout << "This book is in stock.\n\n";
@@ -198,7 +205,12 @@ void returnBook() {
 
     }
 }
-
+//sorts books by users wanted type
+//bookNum
+//Title
+//Author
+//Published year
+//Availability
 void bookSortBy(int num) {
    
     if (num < 1 || num > 5) {
@@ -247,7 +259,9 @@ void bookSortBy(int num) {
         }
     }
 }
-
+//Allows user to search for book however must
+//Include underscores in places of spaces
+//displays searched book if found
 void bookSearch() {
     cin.ignore();
     string bookTitleSearched;
